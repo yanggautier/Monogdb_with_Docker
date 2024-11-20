@@ -11,10 +11,10 @@ class TestConnection(unittest.TestCase):
             """Configuration initiale avant chaque test"""
             self.uri = os.getenv('MONGODB_URI')
             self.db_name = os.getenv('MONGO_INITDB_DATABASE')
+
             
     def test_real_connection(self):
         """Test d'une vraie connexion à MongoDB"""
-        print("-------------------------- My test --------------------------")
         try:
             # Tentative de connexion
             client = MongoClient(self.uri, serverSelectionTimeoutMS=2000)

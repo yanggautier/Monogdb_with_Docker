@@ -12,6 +12,8 @@ services:
       - ./data:/data
     env_file:
       - .env
+    networks:
+      - app_network
 
   python_service:
     build:
@@ -25,7 +27,12 @@ services:
       - ./data:/app/data
     env_file:
       - .env
+    networks:
+      - app_network
     
 volumes:
   mongodb_data:
 
+networks:
+  app_network:
+    driver: bridge

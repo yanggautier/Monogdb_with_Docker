@@ -1,4 +1,5 @@
 # MongoDB Dockerized Application avec Tests Python
+
 Application de traitement de données utilisant MongoDB dans un conteneur Docker, accompagnée de tests unitaires en Python avec pymongo.
 
 ## Fonctionnalités
@@ -7,7 +8,6 @@ Configuration MongoDB via Docker-compose
 Import de données CSV vers JSON
 
 Tests unitaires pour:
-
 - Connexion à MongoDB
 - Opérations CRUD
 - Intégrité des données
@@ -22,32 +22,33 @@ Export des données au format JSON
 - pytest
 - pandas
 
-
 ## Structure
 
 ```
-├── Dockerfile
-├── Readme
-├── data
-│   ├── healthcare_dataset.csv
-│   └── healthcare_dataset.json
-├── docker-compose.yml
-├── mongo-init.js
-├── requirements.txt
-├── scripts
-│   ├── export_data.py
-│   └── import_data.py
-└── tests
-    ├── test_connection.py
-    ├── test_integrity.py
-    └── test_operation.py
+project/
+        ├── Dockerfile
+        ├── README.md
+        ├── data
+        │   ├── healthcare_dataset.csv
+        │   └── healthcare_dataset.json
+        ├── docker-compose.yml
+        ├── mongo-init.js
+        ├── requirements.txt
+        ├── scripts
+        │   ├── export_data.py
+        │   └── import_data.py
+        └── tests
+            ├── test_connection.py
+            ├── test_integrity.py
+            └── test_operation.py
 ```
 
-
 ## Installation
+
 1. Modifier le `.env.sample` en fichier `.env`
 2. Mettre les valeurs des variables d'environnement dans le fichier `.env`
 
-```
+Utiliser la commande pour lancer le programme
+```bash
 docker-compose up -d
 ```

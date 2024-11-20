@@ -11,7 +11,6 @@ def export_to_json(collection, output_file):
     """
     Exporte une collection MongoDB vers un fichier JSON
     """
-    print(type(collection))
     data = list(collection.find({}, {'_id': 0}))
     
     # Gestion des types datetime pour la sérialisation JSON
