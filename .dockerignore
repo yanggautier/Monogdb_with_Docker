@@ -1,6 +1,2 @@
-mongo_test.ipynb
-import_data.sh
-poetry.lock
-pyproject.toml
-mongo_test.ipynb
 AWS.docx
+.ipynb_checkpoints
