@@ -26,7 +26,69 @@ db.createUser({
 });
 
 // Création des collections qu'on a besoin
-db.createCollection("patients");
+db.createCollection("patients",{
+    validator: {
+        $jsonSchema: {
+            bsonType: "object",
+            required: ["name", "age", "gender", "admissionDate"],
+            properties: {
+                name: {
+                    bsonType: "string",
+                    description: "Patient's full name"
+                },
+                age: {
+                    bsonType: "int",
+                    minimum: 0,
+                    maximum: 120
+                },
+                gender: {
+                    bsonType: "string",
+                    enum: ["Male", "Female", "Other"]
+                },
+                bloodType: {
+                    bsonType: "string",
+                    pattern: "^(A|B|AB|O)[+-]$"
+                },
+                medicalCondition: {
+                    bsonType: "string"
+                },
+                admissionDate: {
+                    bsonType: "date"
+                },
+                doctor: {
+                    bsonType: "string"
+                },
+                hospital: {
+                    bsonType: "string"
+                },
+                insuranceProvider: {
+                    bsonType: "string"
+                },
+                billingAmount: {
+                    bsonType: "decimal"
+                },
+                roomNumber: {
+                    bsonType: "int",
+                    minimum: 1
+                },
+                admissionType: {
+                    bsonType: "string",
+                    enum: ["Emergency", "Scheduled", "Transfer"]
+                },
+                dischargeDate: {
+                    bsonType: "date"
+                },
+                medication: {
+                    bsonType: "string"
+                },
+                testResults: {
+                    bsonType: "string"
+                }
+            }
+        }
+    }
+});
+
 db.createCollection("test_collection");  // La collection pour faire des  
 
 // Optional: Create any necessary indexes
