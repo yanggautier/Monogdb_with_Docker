@@ -79,7 +79,7 @@ docker-compose down -v
 - Le rôle `dbAdmin` permet de gérer les collections (créer, supprimer et modifier) et gérer les index, 
   on l'a attribué à l'utilisateur dans le script d'initialisation de base de données mongodb.
 
-- Le rôle `dbAdmin` permet de lecture et d'écriture de données, 
+- Le rôle `readWrite` permet de lecture et d'écriture de données, 
   on l'a attribué à l'utilisateur dans le script d'initialisation de base de données mongodb.
 
 ## Authentification
