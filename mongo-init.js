@@ -33,8 +33,7 @@ db.createCollection("patients",{
             required: ["name", "age", "gender", "admissionDate"],
             properties: {
                 name: {
-                    bsonType: "string",
-                    description: "Patient's full name"
+                    bsonType: "string"
                 },
                 age: {
                     bsonType: "int",
@@ -42,12 +41,10 @@ db.createCollection("patients",{
                     maximum: 120
                 },
                 gender: {
-                    bsonType: "string",
-                    enum: ["Male", "Female", "Other"]
+                    bsonType: "string"
                 },
                 bloodType: {
-                    bsonType: "string",
-                    pattern: "^(A|B|AB|O)[+-]$"
+                    bsonType: "string"
                 },
                 medicalCondition: {
                     bsonType: "string"
@@ -72,8 +69,7 @@ db.createCollection("patients",{
                     minimum: 1
                 },
                 admissionType: {
-                    bsonType: "string",
-                    enum: ["Emergency", "Scheduled", "Transfer"]
+                    bsonType: "string"
                 },
                 dischargeDate: {
                     bsonType: "date"
@@ -90,14 +86,3 @@ db.createCollection("patients",{
 });
 
 db.createCollection("test_collection");  // La collection pour faire des  
-
-// Optional: Create any necessary indexes
-db.patients.createIndex({ "patientId": 1 }, { unique: true });
-
-// Ajout des rôls pour des collections spécifiques
-db.grantRolesToUser(
-    process.env.MONGO_APP_USER,
-    [
-        { role: "readWrite", db: process.env.MONGO_INITDB_DATABASE }
-    ]
-);
