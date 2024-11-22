@@ -25,6 +25,45 @@ Export des données au format JSON
 - unittest
 - pandas
 
+## Schema
+
+```mermaid
+classDiagram
+    Patient "1" -- "1..*" Medical : has
+    Patient "1" -- "1..*" Admission : has
+    Patient "1" -- "1..*" Billing : has
+
+    class Patient {
+        +String id
+        +String name
+        +int age
+        +String gender
+        +String bloodType
+        +Object medical
+        +Object admission
+        +Object billing
+    }
+
+    class Medical {
+        +String condition
+        +String medication
+        +String testResults
+    }
+
+    class Admission {
+        +Date admissionDate
+        +Date dischargeDate
+        +String admissionType
+        +String roomNumber
+        +String hospital
+    }
+
+    class Billing {
+        +float amount
+        +String insuranceProvider
+    }
+```
+
 ## Structure
 
 ```
